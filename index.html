@@ -1,12 +1,55 @@
 <html>
+
 <head>
 	<title>Slap Object Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" href="">
-	<link rel="stylesheet" href="">
-	
+	<link rel="stylesheet" href="game.css">
+
 </head>
+
 <body>
-	
-	<script src=""></script>
+	<div class="container-fluid main-window">
+		<div class="row player-fov-row text-center">
+			<div class="col-sm-12 player-fov-col">
+				<div class="playerFovDiv">
+					<div class="demonBox">
+						<img src="//placehold.it/200x500" alt="Demon" class="demon">
+						<div class="progress">
+							<div class="progress-bar" id="demon-health-bar" role="progressbar">
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row health-bar-row text-center">
+			<div class="col-sm-4 actionCol">
+				<div class="actionDiv">
+					<button onclick="punch()" class="punchButton">Punch!</button>
+					<button onclick="shotgun()" class="shotgunButton">Shotgun!</button>
+					<button onclick="rocket()" class="rocketButton">Rocket!</button>
+				</div>
+			</div>
+			<div class="col-sm-4 enemy-status-col">
+				<div class="enemy-status-div">
+					<span id="enemy-name"></span>
+					<span id="enemy-hits"></span>
+				</div>
+			</div>
+			<div class="col-sm-4 enemy-buttons-col">
+				<div class="enemy-buttons-div">
+						<button onclick="giveItem(itemsList.berserkStrength, target)" class="berserk-button">Give berserk!</button>
+						<button onclick="heal()" class="medkit-button">Give medkit!</button>
+						<button onclick="giveItem(itemsList.armor, target)" class="armor-button">Give armor!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="game.js"></script>
 </body>
+
 </html>
