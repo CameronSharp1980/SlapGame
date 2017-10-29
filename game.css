@@ -16,15 +16,40 @@ p, span, div {
   background-image: url("img/fov.png");
 }
 
-.progress {
+.enemy-box {
+  position: relative;
+  width: 400px;
+  height: 333px;
+  margin: auto;
+  outline: 1px solid red;
+}
+
+.enemy-img-frame {
+  position: absolute;
+  bottom: 21;
+  width: 400px;
+}
+
+#enemy-img {
+  margin: auto;
+  width: 232px;
+  height: 248px;
+}
+
+#enemy {
+  margin: auto;
+}
+
+.progress-center {
   width: 200px;
   margin: auto;
 }
 
-.title {
-  color: red;
-  font-weight: bold;
-  height: 45px;
+.progress {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  margin: auto;
 }
 
 .hud {

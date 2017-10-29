@@ -14,13 +14,19 @@
 		<source src="music/e1m1.mp3" type="audio/mpeg">
 	</audio> -->
 	<div class="player-fov-div">
-		<div class="title">
-			<!-- <h1>Fight!</h1> -->
-		</div>
 		<div class="enemy-box text-center">
-			<img src="//placehold.it/200x265" alt="enemy" class="enemy">
-			<div class="progress">
-				<div class="progress-bar" id="enemy-health-bar" role="progressbar"></div>
+			<div class="enemy-img-frame">
+				<div id="enemy-img">
+					<!-- <img src="//placehold.it/200x265" alt="enemy" class="enemy"> -->
+					<!-- <img src="//placehold.it/125x250" alt="enemy" class="enemy"> -->
+					<!-- <img src="img/imp.png" alt="enemy" class="enemy"> -->
+					<img src="img/imp-stand.png" alt="enemy" id="enemy">
+				</div>
+			</div>
+			<div class="progress-center">
+				<div class="progress">
+					<div class="progress-bar" id="enemy-health-bar" role="progressbar"></div>
+				</div>
 			</div>
 		</div>
 		<div class="hud">
@@ -57,7 +63,7 @@
 			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun!</button>
 			<button onclick="rocket(enemy)" class="player-rocket-button">Rocket!</button>
 			<h4>Equippable Items:</h4>
-			<button onclick="giveItem(itemsList.berserkStrength, player)" class="player-berserk-button">Berserk!</button>
+			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="player-berserk-button">Berserk!</button>
 			<button onclick="heal(player)" class="player-medkit-button">Medkit!</button>
 			<button onclick="giveItem(itemsList.armor, player)" class="player-armor-button">Armor!</button>
 		</div>
@@ -67,9 +73,9 @@
 			<h4>Enemy Actions:</h4>
 			<button onclick="punch(player)" class="enemy-punch-button">Punch!</button>
 			<button onclick="shotgun(player)" class="enemy-shotgun-button">Shotgun!</button>
-			<button onclick="rocket(player)" class="emeny-rocket-button">Rocket!</button>
+			<button onclick="rocket(player)" class="enemy-rocket-button">Rocket!</button>
 			<h4>Equippable Items:</h4>
-			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="enemy-berserk-button">Berserk!</button>
+			<button onclick="giveItem(itemsList.berserkStrength, player)" class="enemy-berserk-button">Berserk!</button>
 			<button onclick="heal(enemy)" class="enemy-medkit-button">Medkit!</button>
 			<button onclick="giveItem(itemsList.armor, enemy)" class="enemy-armor-button">Armor!</button>
 		</div>

@@ -98,6 +98,7 @@ function update() {
     document.getElementById("enemy-health-bar").style.width = `${enemy.health}%`;
     document.getElementById("enemy-health-bar").innerText = `${enemy.health}%`;
     document.getElementById("player-name").innerHTML = `Name: ${player.name}<br>`;
+    document.getElementById("player-hits").innerText = `Hits: ${player.hits}`;
     document.getElementById("player-hits-box").innerText = `${player.hits}`;
     document.getElementById("player-health-box").innerText = `${player.health}`;
 }
