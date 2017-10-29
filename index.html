@@ -10,43 +10,63 @@
 </head>
 
 <body>
-	<div class="container-fluid main-window">
-		<div class="row player-fov-row text-center">
-			<div class="col-sm-12 player-fov-col">
-				<div class="playerFovDiv">
-					<div class="demonBox">
-						<img src="//placehold.it/200x500" alt="Demon" class="demon">
-						<div class="progress">
-							<div class="progress-bar" id="demon-health-bar" role="progressbar">
-								
-							</div>
-						</div>
-
-					</div>
-				</div>
+	<!-- <audio loop preload="auto" autoplay="autoplay">
+		<source src="music/e1m1.mp3" type="audio/mpeg">
+	</audio> -->
+	<div class="player-fov-div">
+		<div class="title">
+			<!-- <h1>Fight!</h1> -->
+		</div>
+		<div class="demon-box text-center">
+			<img src="//placehold.it/200x265" alt="Demon" class="demon">
+			<div class="progress">
+				<div class="progress-bar" id="demon-health-bar" role="progressbar"></div>
 			</div>
 		</div>
-		<div class="row health-bar-row text-center">
-			<div class="col-sm-4 actionCol">
-				<div class="actionDiv">
-					<button onclick="punch()" class="punchButton">Punch!</button>
-					<button onclick="shotgun()" class="shotgunButton">Shotgun!</button>
-					<button onclick="rocket()" class="rocketButton">Rocket!</button>
+		<div class="hud">
+			<div class="ammo-box">
+				<span></span>
+			</div>
+			<div class="health-box">
+				<div class="test-div">
+					<p>100</p> <!-- Why if the f'ing 'f' is this moving the div down!?-->
 				</div>
 			</div>
-			<div class="col-sm-4 enemy-status-col">
-				<div class="enemy-status-div">
-					<span id="enemy-name"></span>
-					<span id="enemy-hits"></span>
-				</div>
+			<div class="frag-box">
+				<span></span>
 			</div>
-			<div class="col-sm-4 enemy-buttons-col">
-				<div class="enemy-buttons-div">
-						<button onclick="giveItem(itemsList.berserkStrength, target)" class="berserk-button">Give berserk!</button>
-						<button onclick="heal()" class="medkit-button">Give medkit!</button>
-						<button onclick="giveItem(itemsList.armor, target)" class="armor-button">Give armor!</button>
-				</div>
+			<div class="face-box">
+				<span></span>
 			</div>
+			<div class="armor-box">
+				<span></span>
+			</div>
+			<div class="key-box">
+				<span></span>
+			</div>
+			<div class="ammo-list-box">
+				<span></span>
+			</div>
+
+		</div>
+	</div>
+	<div class="actionbar">
+		<div class="action-div">
+			<h4>Actions</h4>
+			<button onclick="punch(enemy)" class="punchButton">Punch!</button>
+			<button onclick="shotgun(enemy)" class="shotgunButton">Shotgun!</button>
+			<button onclick="rocket(enemy)" class="rocketButton">Rocket!</button>
+		</div>
+		<div class="enemy-status-div">
+			<h4>Enemy Stats</h4>
+			<span id="enemy-name"></span>
+			<span id="enemy-hits"></span>
+		</div>
+		<div class="enemy-buttons-div">
+			<h4>Items</h4>
+			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="berserk-button">Give berserk!</button>
+			<button onclick="heal(enemy)" class="medkit-button">Give medkit!</button>
+			<button onclick="giveItem(itemsList.armor, enemy)" class="armor-button">Give armor!</button>
 		</div>
 	</div>
 	<script src="game.js"></script>

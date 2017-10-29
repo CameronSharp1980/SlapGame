@@ -1,13 +1,81 @@
 /*Only use this file if you want to override bootstrap or create your own style*/
-.player-fov-row{
-    height: 80vh;
-}
+// .player-fov-row{
+//     height: 80vh;
+// }
 
+// .player-fov-div{
+//     height: 100%;
+// }
+
+// .health-bar-row{
+//     height: 20vh;
+//     width: 100%;
+// }
+p, span{
+    padding: 0;
+    margin: 0;
+}
 .player-fov-div{
-    height: 100%;
+    position: relative;
+    width: 640px;
+    height: 400px;
+    background-image: url("img/fov.png");
+    // background-size: contain;
 }
-
-.health-bar-row{
-    height: 20vh;
+.actionbar div{
+    display: inline-block;
+}
+.progress{
+    width: 200px;
+    margin: auto;
+}
+.title{
+    color: red;
+    font-weight: bold;
+    height: 45px;
+}
+.hud{
+    height: 64px;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.ammo-box{
+    display: inline-block;
+    height: 64px;
+    width: 92px;
+}
+.health-box{
+    display: inline-block;
+    height: 64px;
+    width: 112px;
+}
+.frag-box{
+    display: inline-block;
+    height: 64px;
+    width: 71px;
+}
+.face-box{
+    display: inline-block;
+    height: 64px;
+    width: 69px;
+}
+.armor-box{
+    display: inline-block;
+    height: 64px;
+    width: 110px;
+}
+.key-box{
+    display: inline-block;
+    height: 64px;
+    width: 23px;
+}
+.ammo-list-box{
+    display: inline-block;
+    height: 64px;
+    width: 139px;
+}
+.test-div{
+    height: 64px;
+    outline: 1px solid red;
 }
