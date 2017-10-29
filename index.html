@@ -17,10 +17,10 @@
 		<div class="title">
 			<!-- <h1>Fight!</h1> -->
 		</div>
-		<div class="demon-box text-center">
-			<img src="//placehold.it/200x265" alt="Demon" class="demon">
+		<div class="enemy-box text-center">
+			<img src="//placehold.it/200x265" alt="enemy" class="enemy">
 			<div class="progress">
-				<div class="progress-bar" id="demon-health-bar" role="progressbar"></div>
+				<div class="progress-bar" id="enemy-health-bar" role="progressbar"></div>
 			</div>
 		</div>
 		<div class="hud">
@@ -28,12 +28,10 @@
 				<span></span>
 			</div>
 			<div class="health-box">
-				<div class="test-div">
-					<p>100</p> <!-- Why if the f'ing 'f' is this moving the div down!?-->
-				</div>
+				<span id="player-health-box"></span>
 			</div>
 			<div class="frag-box">
-				<span></span>
+				<span id="player-hits-box"></span>
 			</div>
 			<div class="face-box">
 				<span></span>
@@ -51,22 +49,29 @@
 		</div>
 	</div>
 	<div class="actionbar">
-		<div class="action-div">
-			<h4>Actions</h4>
-			<button onclick="punch(enemy)" class="punchButton">Punch!</button>
-			<button onclick="shotgun(enemy)" class="shotgunButton">Shotgun!</button>
-			<button onclick="rocket(enemy)" class="rocketButton">Rocket!</button>
+		<div class="player-div">
+			<span id="player-name"></span>
+			<span id="player-hits"></span>
+			<h4>Player Actions:</h4>
+			<button onclick="punch(enemy)" class="player-punch-button">Punch!</button>
+			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun!</button>
+			<button onclick="rocket(enemy)" class="player-rocket-button">Rocket!</button>
+			<h4>Equippable Items:</h4>
+			<button onclick="giveItem(itemsList.berserkStrength, player)" class="player-berserk-button">Berserk!</button>
+			<button onclick="heal(player)" class="player-medkit-button">Medkit!</button>
+			<button onclick="giveItem(itemsList.armor, player)" class="player-armor-button">Armor!</button>
 		</div>
-		<div class="enemy-status-div">
-			<h4>Enemy Stats</h4>
+		<div class="enemy-div">
 			<span id="enemy-name"></span>
 			<span id="enemy-hits"></span>
-		</div>
-		<div class="enemy-buttons-div">
-			<h4>Items</h4>
-			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="berserk-button">Give berserk!</button>
-			<button onclick="heal(enemy)" class="medkit-button">Give medkit!</button>
-			<button onclick="giveItem(itemsList.armor, enemy)" class="armor-button">Give armor!</button>
+			<h4>Enemy Actions:</h4>
+			<button onclick="punch(player)" class="enemy-punch-button">Punch!</button>
+			<button onclick="shotgun(player)" class="enemy-shotgun-button">Shotgun!</button>
+			<button onclick="rocket(player)" class="emeny-rocket-button">Rocket!</button>
+			<h4>Equippable Items:</h4>
+			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="enemy-berserk-button">Berserk!</button>
+			<button onclick="heal(enemy)" class="enemy-medkit-button">Medkit!</button>
+			<button onclick="giveItem(itemsList.armor, enemy)" class="enemy-armor-button">Armor!</button>
 		</div>
 	</div>
 	<script src="game.js"></script>

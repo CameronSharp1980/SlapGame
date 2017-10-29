@@ -67,37 +67,38 @@ function addMods(attack, target) {
     return modRunningTotal
 }
 
-document.getElementById("demon-health-bar").style.width = `${enemy.health}%`;
-document.getElementById("enemy-name").innerHTML = `Name: ${enemy.name}<br>`;
-document.getElementById("enemy-hits").innerText = `Hits: ${enemy.hits}`;
-
 function punch(target) {
-    target.health -= 1 * addMods('punchy', enemy);
+    target.health -= 1 * addMods('punchy', target);
+    target.health = Math.floor(target.health);
     target.hits++
     target.health < 0 ? target.health = 0 : target.health = target.health
     // alert(health);
-    update(target)
+    update()
 }
 
 function shotgun(target) {
-    target.health -= 10 * addMods('shotty', enemy); // ******* Start here finishing the addmod parameters
+    target.health -= 10 * addMods('shotty', target); // ******* Start here finishing the addmod parameters
     target.hits++
     target.health < 0 ? target.health = 0 : target.health = target.health
     // alert(health);
-    update(target)
+    update()
 }
 
 function rocket(target) {
-    target.health -= 20 * addMods('rockety', enemy);
+    target.health -= 20 * addMods('rockety', target);
     target.hits++
     target.health < 0 ? target.health = 0 : target.health = target.health
     // alert(health);
-    update(target)
+    update()
 }
 
-function update(target) {
-    document.getElementById("demon-health-bar").style.width = `${target.health}%`;
-    document.getElementById("demon-health-bar").innerText = `${target.health}%`;
-    document.getElementById("enemy-hits").innerText = `Hits: ${target.hits}`;
+function update() {
+    document.getElementById("enemy-name").innerHTML = `Name: ${enemy.name}<br>`;
+    document.getElementById("enemy-hits").innerText = `Hits: ${enemy.hits}`;
+    document.getElementById("enemy-health-bar").style.width = `${enemy.health}%`;
+    document.getElementById("enemy-health-bar").innerText = `${enemy.health}%`;
+    document.getElementById("player-name").innerHTML = `Name: ${player.name}<br>`;
+    document.getElementById("player-hits-box").innerText = `${player.hits}`;
+    document.getElementById("player-health-box").innerText = `${player.health}`;
 }
-update(enemy)
+update();

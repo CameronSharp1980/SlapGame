@@ -1,5 +1,10 @@
 /*Only use this file if you want to override bootstrap or create your own style*/
-p, span {
+body {
+  width: 640px;
+  margin: auto;
+}
+
+p, span, div {
   padding: 0;
   margin: 0;
 }
@@ -9,10 +14,6 @@ p, span {
   width: 640px;
   height: 400px;
   background-image: url("img/fov.png");
-}
-
-.actionbar div {
-  display: inline-block;
 }
 
 .progress {
@@ -37,45 +38,86 @@ p, span {
   display: inline-block;
   height: 64px;
   width: 92px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .health-box {
   display: inline-block;
   height: 64px;
   width: 112px;
+  position: absolute;
+  top: 0;
+  left: 95px;
+  text-align: center;
+  color: red;
+  line-height: 53px;
+  font-size: 48px;
 }
 
 .frag-box {
   display: inline-block;
   height: 64px;
   width: 71px;
+  position: absolute;
+  top: 0;
+  left: 212px;
+  text-align: center;
+  color: red;
+  line-height: 53px;
+  font-size: 48px;
 }
 
 .face-box {
   display: inline-block;
   height: 64px;
   width: 69px;
+  position: absolute;
+  top: 0;
+  left: 286px;
 }
 
 .armor-box {
   display: inline-block;
   height: 64px;
   width: 110px;
+  position: absolute;
+  top: 0;
+  left: 359px;
 }
 
 .key-box {
   display: inline-block;
   height: 64px;
   width: 23px;
+  position: absolute;
+  top: 0;
+  left: 473px;
 }
 
 .ammo-list-box {
   display: inline-block;
   height: 64px;
   width: 139px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.test-div {
-  height: 64px;
+.actionbar {
+  width: 640px;
+  text-align: center;
+}
+
+.player-div {
+  display: inline-block;
+  width: 318px;
+  outline: 1px solid red;
+}
+
+.enemy-div {
+  display: inline-block;
+  width: 318px;
   outline: 1px solid red;
 }
