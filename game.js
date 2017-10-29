@@ -24,7 +24,8 @@ function Item(name, modifier, description) { //Instantiate individual Items
 var itemsList = { //Store each individual item inside an object 
     berserkStrength: new Item('Berserk Strength', 50, 'Multiply punch damage by 100'),
     medKit: new Item('Med kit', 25, 'Restores 25 health'),
-    armor: new Item('Armor', 0.5, 'Reduces damage by half')
+    armor: new Item('Armor', -0.25, 'Reduces damage by 25%'),
+    helmet: new Item('Helmet', -0.25, 'Reduces damage by 25%')
 }
 
 function giveItem(item, target) {
@@ -60,7 +61,10 @@ function addMods(attack, target) {
             }
         }
         if (item.name == 'Armor') {
-            modRunningTotal *= item.modifier
+            modRunningTotal += item.modifier
+        }
+        if (item.name == 'Helmet') {
+            modRunningTotal += item.modifier
         }
     }
     console.log(modRunningTotal)
@@ -78,6 +82,7 @@ function punch(target) {
 
 function shotgun(target) {
     target.health -= 10 * addMods('shotty', target); // ******* Start here finishing the addmod parameters
+    target.health = Math.floor(target.health);
     target.hits++
     target.health < 0 ? target.health = 0 : target.health = target.health
     // alert(health);
@@ -86,6 +91,7 @@ function shotgun(target) {
 
 function rocket(target) {
     target.health -= 20 * addMods('rockety', target);
+    target.health = Math.floor(target.health);
     target.hits++
     target.health < 0 ? target.health = 0 : target.health = target.health
     // alert(health);
