@@ -93,13 +93,13 @@ function rocket(target) {
 }
 
 function update() {
-    document.getElementById("enemy-name").innerHTML = `Name: ${enemy.name}<br>`;
-    document.getElementById("enemy-hits").innerText = `Hits: ${enemy.hits}`;
-    document.getElementById("enemy-health-bar").style.width = `${enemy.health}%`;
-    document.getElementById("enemy-health-bar").innerText = `${enemy.health}%`;
-    document.getElementById("player-name").innerHTML = `Name: ${player.name}<br>`;
-    document.getElementById("player-hits").innerText = `Hits: ${player.hits}`;
-    document.getElementById("player-hits-box").innerText = `${player.hits}`;
-    document.getElementById("player-health-box").innerText = `${player.health}`;
+    document.getElementsByClassName("enemy-name")[0].innerHTML = `Name: ${enemy.name}<br>`;
+    document.getElementsByClassName("enemy-hits")[0].innerText = `Hits: ${enemy.hits}`;
+    document.getElementsByClassName("enemy-health-bar")[0].style.width = `${enemy.health}%`;
+    document.getElementsByClassName("enemy-health-bar")[0].innerText = `${enemy.health}%`;
+    document.getElementsByClassName("player-name")[0].innerHTML = `Name: ${player.name}<br>`;
+    document.getElementsByClassName("player-hits")[0].innerText = `Hits: ${player.hits}`;
+    document.getElementsByClassName("player-hits-box")[0].innerText = `${player.hits}`;
+    document.getElementsByClassName("player-health-box")[0].innerText = `${player.health}`;
 }
 update();

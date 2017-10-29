@@ -16,16 +16,16 @@
 	<div class="player-fov-div">
 		<div class="enemy-box text-center">
 			<div class="enemy-img-frame">
-				<div id="enemy-img">
+				<div class="enemy-img-div">
 					<!-- <img src="//placehold.it/200x265" alt="enemy" class="enemy"> -->
 					<!-- <img src="//placehold.it/125x250" alt="enemy" class="enemy"> -->
 					<!-- <img src="img/imp.png" alt="enemy" class="enemy"> -->
-					<img src="img/imp-stand.png" alt="enemy" id="enemy">
+					<img src="img/imp-stand.png" alt="enemy" class="enemy-img">
 				</div>
 			</div>
 			<div class="progress-center">
 				<div class="progress">
-					<div class="progress-bar" id="enemy-health-bar" role="progressbar"></div>
+					<div class="progress-bar enemy-health-bar" role="progressbar"></div>
 				</div>
 			</div>
 		</div>
@@ -34,10 +34,10 @@
 				<span></span>
 			</div>
 			<div class="health-box">
-				<span id="player-health-box"></span>
+				<span class="player-health-box"></span>
 			</div>
 			<div class="frag-box">
-				<span id="player-hits-box"></span>
+				<span class="player-hits-box"></span>
 			</div>
 			<div class="face-box">
 				<span></span>
@@ -56,8 +56,8 @@
 	</div>
 	<div class="actionbar">
 		<div class="player-div">
-			<span id="player-name"></span>
-			<span id="player-hits"></span>
+			<span class="player-name"></span>
+			<span class="player-hits"></span>
 			<h4>Player Actions:</h4>
 			<button onclick="punch(enemy)" class="player-punch-button">Punch!</button>
 			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun!</button>
@@ -68,8 +68,8 @@
 			<button onclick="giveItem(itemsList.armor, player)" class="player-armor-button">Armor!</button>
 		</div>
 		<div class="enemy-div">
-			<span id="enemy-name"></span>
-			<span id="enemy-hits"></span>
+			<span class="enemy-name"></span>
+			<span class="enemy-hits"></span>
 			<h4>Enemy Actions:</h4>
 			<button onclick="punch(player)" class="enemy-punch-button">Punch!</button>
 			<button onclick="shotgun(player)" class="enemy-shotgun-button">Shotgun!</button>

@@ -30,14 +30,16 @@ p, span, div {
   width: 400px;
 }
 
-#enemy-img {
+.enemy-img-div {
   margin: auto;
   width: 232px;
   height: 248px;
 }
 
-#enemy {
+.enemy-img {
   margin: auto;
+  width: 232px;
+  height: 248px;
 }
 
 .progress-center {

@@ -39,7 +39,7 @@ p, span, div{
     width: 400px;
     // height: 265px;
 }
-#enemy-img{
+.enemy-img-div{
     margin: auto;
     // width: 118px;
     // height: 124px;
@@ -48,10 +48,10 @@ p, span, div{
     // background: url("img/imp-placeholder.png");
     // background-size: 100% 100%;
 }
-#enemy{ //redundant if you use background image above. clean up after deciding!
+.enemy-img{ //redundant if you use background image above. clean up after deciding!
     margin: auto;
-    // width: 232px;
-    // height: 248px;
+    width: 232px;
+    height: 248px;
     // background: url("img/imp.png") 0 0;
 }
 .progress-center{
