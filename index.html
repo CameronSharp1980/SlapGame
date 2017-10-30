@@ -10,9 +10,29 @@
 </head>
 
 <body>
-	<!-- <audio loop preload="auto" autoplay="autoplay">
+	<!-- Hacky-dirty audio section - Revise audio stucture when you have more time. -->
+	<audio loop preload="auto" autoplay="autoplay">
 		<source src="music/e1m1.mp3" type="audio/mpeg">
-	</audio> -->
+	</audio>
+	<!-- Demon sounds -->
+	<audio src="/sound/Imp-attack.wav" type="audio/wav" class="Imp-attack"></audio>
+	<audio src="/sound/Imp-death.wav" type="audio/wav" class="Imp-death"></audio>
+	<audio src="/sound/Imp-gib.wav" type="audio/wav" class="Imp-gib"></audio>
+	<audio src="/sound/Imp-pain.wav" type="audio/wav" class="Imp-pain"></audio>
+	<audio src="/sound/Imp-sight.wav" type="audio/wav" class="Imp-sight"></audio>
+	<audio src="/sound/Imp-fireball.wav" type="audio/wav" class="Imp-fireball"></audio>
+	<audio src="/sound/Imp-soul.wav" type="audio/wav" class="Imp-soul"></audio>
+	<!-- Player sounds -->
+	<audio src="/sound/DoomGuy-death.wav" type="audio/wav" class="DoomGuy-death"></audio>
+	<audio src="/sound/DoomGuy-explode.wav" type="audio/wav" class="DoomGuy-explode"></audio>
+	<audio src="/sound/DoomGuy-gib.wav" type="audio/wav" class="DoomGuy-gib"></audio>
+	<audio src="/sound/DoomGuy-pain.wav" type="audio/wav" class="DoomGuy-pain"></audio>
+	<audio src="/sound/DoomGuy-punch.wav" type="audio/wav" class="DoomGuy-punch"></audio>
+	<audio src="/sound/DoomGuy-rocket.wav" type="audio/wav" class="DoomGuy-rocket"></audio>
+	<audio src="/sound/DoomGuy-shotgun.wav" type="audio/wav" class="DoomGuy-shotgun"></audio>
+	<!-- Item sounds -->
+	<audio src="/sound/item-pickup.wav" type="audio/wav" class="item-pickup"></audio>
+	<!-- Sound block end -->
 	<div class="player-fov-div">
 		<div class="enemy-box text-center">
 			<div class="enemy-img-frame">
@@ -25,13 +45,13 @@
 			</div>
 			<div class="progress-center">
 				<div class="progress">
-					<div class="progress-bar enemy-health-bar" role="progressbar"></div>
+					<div class="progress-bar progress-bar-danger enemy-health-bar" role="progressbar"></div>
 				</div>
 			</div>
 		</div>
 		<div class="hud">
 			<div class="ammo-box">
-				<span></span>
+				<img src="img/berserk.png" alt="berserk" class="berserk-img">
 			</div>
 			<div class="health-box">
 				<span class="player-health-box"></span>
@@ -40,10 +60,11 @@
 				<span class="player-hits-box"></span>
 			</div>
 			<div class="face-box">
-				<span></span>
+				<img src="img/face.png" alt="Marine face" class="marine-face">
 			</div>
 			<div class="armor-box">
-				<span></span>
+				<img src="img/armor-1.png" alt="armor-1" class="armor-1">
+				<img src="img/armor-2.png" alt="armor-2" class="armor-2">
 			</div>
 			<div class="key-box">
 				<span></span>
@@ -59,9 +80,9 @@
 			<span class="player-name"></span>
 			<span class="player-hits"></span>
 			<h4>Player Actions:</h4>
-			<button onclick="punch(enemy)" class="player-punch-button">Punch!</button>
-			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun!</button>
-			<button onclick="rocket(enemy)" class="player-rocket-button">Rocket!</button>
+			<button onclick="punch(enemy)" class="player-punch-button">Punch</button>
+			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun</button>
+			<button onclick="rocket(enemy)" class="player-rocket-button">Rocket</button>
 			<h4>Equippable Items:</h4>
 			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="player-berserk-button">Berserk!</button>
 			<button onclick="heal(player)" class="player-medkit-button">Medkit!</button>
@@ -72,9 +93,9 @@
 			<span class="enemy-name"></span>
 			<span class="enemy-hits"></span>
 			<h4>Enemy Actions:</h4>
-			<button onclick="punch(player)" class="enemy-punch-button">Punch!</button>
-			<button onclick="shotgun(player)" class="enemy-shotgun-button">Shotgun!</button>
-			<button onclick="rocket(player)" class="enemy-rocket-button">Rocket!</button>
+			<button onclick="punch(player)" class="enemy-punch-button">Claw</button>
+			<button onclick="shotgun(player)" class="enemy-shotgun-button">Steal Soul</button>
+			<button onclick="rocket(player)" class="enemy-rocket-button">Fireball</button>
 			<h4>Equippable Items:</h4>
 			<button onclick="giveItem(itemsList.berserkStrength, player)" class="enemy-berserk-button">Berserk!</button>
 			<button onclick="heal(enemy)" class="enemy-medkit-button">Medkit!</button>

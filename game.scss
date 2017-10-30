@@ -31,7 +31,7 @@ p, span, div{
     width: 400px;
     height: 333px;
     margin: auto;
-    outline: 1px solid red;
+    // outline: 1px solid red;
 }
 .enemy-img-frame{
     position: absolute;
@@ -78,6 +78,13 @@ p, span, div{
     top: 0;
     left: 0;
 }
+.berserk-img{
+    display: none;
+    width: 60px;
+    margin-left: 16px;
+    margin-top: 5px;
+
+}
 .health-box{
     display: inline-block;
     height: 64px;
@@ -110,6 +117,10 @@ p, span, div{
     top: 0;
     left: 286px;
 }
+.face-box img.marine-face{
+    width: 64px;
+    margin-left: 3px;
+}
 .armor-box{
     display: inline-block;
     height: 64px;
@@ -117,6 +128,20 @@ p, span, div{
     position: absolute;
     top: 0;
     left: 359px;
+}
+.armor-1{
+    display: none;
+    position: absolute;
+    width: 70px;
+    top: 6px;
+    left: 20px;
+}
+.armor-2{
+    display: none;
+    position: absolute;
+    width: 70px;
+    top: 6px;
+    left: 20px;
 }
 .key-box{
     display: inline-block;
