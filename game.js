@@ -1,7 +1,5 @@
-// var health = 100;
-// var name = 'Imp'; //Before refactoring to Entity object
-// var hits = 0;
 
+// <------ Encapsulate: SERVICE - PRIVATE <start>
 function Entity(health, name, type) {
     this.name = name,
         this.health = health,
@@ -14,11 +12,9 @@ var enemy = new Entity(100, 'Imp', 'demon');
 var player = new Entity(100, 'DoomGuy', 'human');
 var playerArmorLevel = 0;
 var playerBerserk = 0;
-// var demon = new Entity(150, 'Entity');
-// var baronOfHell = new Entity(250, 'Baron of Hell');
 
-// Items instantiated as key names inside a pojo
-function Item(name, modifier, description) { //Instantiate individual Items
+// Individual Items instantiated as key names inside a pojo
+function Item(name, modifier, description) {
     this.name = name,
         this.modifier = modifier,
         this.description = description
@@ -31,6 +27,28 @@ var itemsList = { //Store each individual item inside an object
     helmet: new Item('Helmet', -0.25, 'Reduces damage by 25%')
 }
 
+function addMods(attack, target) {
+    var modRunningTotal = 1;
+    var finalTotal = 1;
+    for (var i = 0; i < target.items.length; i++) {
+        var item = target.items[i];
+        if (item.name == 'Armor') {
+            modRunningTotal += item.modifier;
+        }
+        if (item.name == 'Helmet') {
+            modRunningTotal += item.modifier;
+        }
+        if (item.name == 'Berserk Strength' && attack == 'punchy') {
+            finalTotal += item.modifier - 1;
+        }
+    }
+    finalTotal = finalTotal * modRunningTotal;
+    console.log(modRunningTotal)
+    return finalTotal;
+}
+// Encapsulate: SERVIVE - PRIVATE <end>------->
+
+// <----- Encapsulate: BOTH <start>
 function giveItem(item, target) {
     for (var i = 0; i < target.items.length; i++) {
         var targetItem = target.items[i].name;
@@ -56,31 +74,6 @@ function heal(target) {
     }
     update();
 
-}
-
-// giveItem(itemsList.berserkStrength, target)
-// giveItem(items.armor, target)
-// giveItem(items.medKit, target)
-// console.log(`Items on ${target.name}: ${target.items[0].name}`)
-
-function addMods(attack, target) {
-    var modRunningTotal = 1;
-    var finalTotal = 1;
-    for (var i = 0; i < target.items.length; i++) {
-        var item = target.items[i];
-        if (item.name == 'Armor') {
-            modRunningTotal += item.modifier;
-        }
-        if (item.name == 'Helmet') {
-            modRunningTotal += item.modifier;
-        }
-        if (item.name == 'Berserk Strength' && attack == 'punchy') {
-            finalTotal += item.modifier - 1;
-        }
-    }
-    finalTotal = finalTotal * modRunningTotal;
-    console.log(modRunningTotal)
-    return finalTotal;
 }
 
 function punch(target) {
@@ -133,7 +126,7 @@ function rocket(target) {
     }
     update()
 }
-
+// Encapsulate: BOTH <end> ------------->
 function update() {
     document.getElementsByClassName("enemy-name")[0].innerHTML = `Name: ${enemy.name}<br>`;
     document.getElementsByClassName("enemy-hits")[0].innerText = `Hits: ${enemy.hits}`;

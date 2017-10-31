@@ -11,9 +11,9 @@
 
 <body>
 	<!-- Hacky-dirty audio section - Revise audio stucture when you have more time. -->
-	<audio loop preload="auto" autoplay="autoplay">
+	<!-- <audio loop preload="auto" autoplay="autoplay">
 		<source src="music/e1m1.mp3" type="audio/mpeg">
-	</audio>
+	</audio> -->
 	<!-- Demon sounds -->
 	<audio src="/sound/Imp-attack.wav" type="audio/wav" class="Imp-attack"></audio>
 	<audio src="/sound/Imp-death.wav" type="audio/wav" class="Imp-death"></audio>
@@ -80,30 +80,46 @@
 			<span class="player-name"></span>
 			<span class="player-hits"></span>
 			<h4>Player Actions:</h4>
-			<button onclick="punch(enemy)" class="player-punch-button">Punch</button>
-			<button onclick="shotgun(enemy)" class="player-shotgun-button">Shotgun</button>
-			<button onclick="rocket(enemy)" class="player-rocket-button">Rocket</button>
+			<button onclick="app.controllers.slapController.punch('enemy')" class="player-punch-button">Punch</button>
+			<button onclick="app.controllers.slapController.shotgun('enemy')" class="player-shotgun-button">Shotgun</button>
+			<button onclick="app.controllers.slapController.rocket('enemy')" class="player-rocket-button">Rocket</button>
 			<h4>Equippable Items:</h4>
-			<button onclick="giveItem(itemsList.berserkStrength, enemy)" class="player-berserk-button">Berserk!</button>
-			<button onclick="heal(player)" class="player-medkit-button">Medkit!</button>
-			<button onclick="giveItem(itemsList.armor, player)" class="player-armor-button">Armor!</button>
-			<button onclick="giveItem(itemsList.helmet, player)" class="player-helmet-button">Helmet!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.berserkSrength, enemy)" class="player-berserk-button">Berserk!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('berserk', 'enemy')" class="player-berserk-button">Berserk!</button>
+			<!-- <button onclick="heal(player)" class="player-medkit-button">Medkit!</button> -->
+			<button onclick="app.controllers.slapController.heal('player')" class="player-medkit-button">Medkit!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.armor, player)" class="player-armor-button">Armor!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('armor', 'player')" class="player-armor-button">Armor!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.helmet, player)" class="player-helmet-button">Helmet!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('helmet', 'player')" class="player-helmet-button">Helmet!</button>
 		</div>
 		<div class="enemy-div">
 			<span class="enemy-name"></span>
 			<span class="enemy-hits"></span>
 			<h4>Enemy Actions:</h4>
-			<button onclick="punch(player)" class="enemy-punch-button">Claw</button>
-			<button onclick="shotgun(player)" class="enemy-shotgun-button">Steal Soul</button>
-			<button onclick="rocket(player)" class="enemy-rocket-button">Fireball</button>
+			<button onclick="app.controllers.slapController.punch('player')" class="enemy-punch-button">Claw</button>
+			<button onclick="app.controllers.slapController.shotgun('player')" class="enemy-shotgun-button">Steal Soul</button>
+			<button onclick="app.controllers.slapController.rocket('player')" class="enemy-rocket-button">Fireball</button>
 			<h4>Equippable Items:</h4>
-			<button onclick="giveItem(itemsList.berserkStrength, player)" class="enemy-berserk-button">Berserk!</button>
-			<button onclick="heal(enemy)" class="enemy-medkit-button">Medkit!</button>
-			<button onclick="giveItem(itemsList.armor, enemy)" class="enemy-armor-button">Armor!</button>
-			<button onclick="giveItem(itemsList.helmet, enemy)" class="enemy-helmet-button">Helmet!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.berserkStrength, player)" class="enemy-berserk-button">Berserk!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('berserk', 'player')" class="enemy-berserk-button">Berserk!</button>
+			<!-- <button onclick="heal(enemy)" class="enemy-medkit-button">Medkit!</button> -->
+			<button onclick="app.controllers.slapController.heal('enemy')" class="enemy-medkit-button">Medkit!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.armor, enemy)" class="enemy-armor-button">Armor!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('armor', 'enemy')" class="enemy-armor-button">Berserk!</button>
+			<!-- <button onclick="app.controllers.slapController.giveItem(itemsList.helmet, enemy)" class="enemy-helmet-button">Helmet!</button> -->
+			<button onclick="app.controllers.slapController.giveItem('helmet', 'enemy')" class="enemy-helmet-button">Berserk!</button>
 		</div>
 	</div>
-	<script src="game.js"></script>
+	<!--Before encapsulation -->
+	<!-- <script src="game.js"></script> -->
+
+	<!-- SERVICE -->
+	<script src="app/slap/slap-service.js"></script>
+	<!-- CONTROLLER -->
+	<script src="app/slap/slap-controller.js"></script>
+	<!-- INIT -->
+	<script src="app/init.js"></script>
 </body>
 
 </html>
