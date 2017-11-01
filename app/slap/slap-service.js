@@ -43,6 +43,63 @@ function SlapService() {
         console.log(modRunningTotal)
         return finalTotal;
     }
+    function checkTarget(targetStr) {
+        if (targetStr == 'player') {
+            return player
+        } else if (targetStr == 'enemy') {
+            return enemy
+        }
+    }
+    function checkItem(itemStr) {
+        for (var item in itemsList) {
+            if (itemsList.hasOwnProperty(item)) {
+                var element = itemsList[item];
+                // console.log(element)
+                if (element.name == itemStr) {
+                    // console.log(item)
+                    // console.log(player.items)
+                    // console.log(enemy.items)
+                    return element
+                }
+            }
+        }
+    }
+
+
 
     // *** PUBLIC ***
+    this.giveItem = function giveItem(item, target) {
+        target = checkTarget(target)
+        item = checkItem(item)
+        for (var i = 0; i < target.items.length; i++) {
+            var targetItem = target.items[i].name;
+            if (targetItem == item.name) {
+                return;
+            }
+        }
+        if (item.name == 'Armor' && target.name == 'DoomGuy' || item.name == 'Helmet' && target.name == 'DoomGuy') {
+            playerArmorLevel++;
+        }
+        if (item.name == 'Berserk Strength' && target.name == 'Imp') {
+            playerBerserk = 1;
+        }
+        target.items.push(item)
+        // console.log(target.items)
+        // document.getElementsByClassName(`item-pickup`)[0].play(); //need to move function to controller and possible make getter
+        // update();
+    }
+    this.hasNoItem = function hasNoItem(item, target) {
+        target = checkTarget(target)
+        if (target.items.length == 0) {
+            return true
+        }
+        for (var i = 0; i < target.items.length; i++) {
+            var currentItem = target.items[i];
+            if (currentItem.name == item) {
+                return false
+            }
+        }
+        return true
+    }
+
 }

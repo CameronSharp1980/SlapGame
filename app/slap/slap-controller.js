@@ -13,11 +13,14 @@ function SlapController() {
     this.rocket = function rocket(target) {
         console.log("Rocket: " + target)
     }
-    this.giveItem = function giveItem(item, target) {
-        console.log(item, target)
-    }
     this.heal = function heal(target) {
         console.log("Heal: " + target)
+    }
+    this.giveItem = function giveItem(item, target){
+        if(slapService.hasNoItem(item, target)){
+            document.getElementsByClassName(`item-pickup`)[0].play();
+        }
+        slapService.giveItem(item, target)
     }
 }
 
