@@ -69,6 +69,13 @@ function SlapService() {
 
 
     // *** PUBLIC ***
+    this.getTarget = function getTarget(target){
+        if (target == 'enemy') {
+            return JSON.parse(JSON.stringify(enemy))
+        }else if (target == 'player') {
+            return JSON.parse(JSON.stringify(player))
+        }
+    }
     this.giveItem = function giveItem(item, target) {
         currentTarget = checkTarget(target)
         item = checkItem(item)
