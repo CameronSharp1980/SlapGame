@@ -11,6 +11,7 @@ function SlapService() {
     var player = new Entity(100, 'DoomGuy', 'human');
     var playerArmorLevel = 0;
     var playerBerserk = 0;
+    var currentTarget = enemy;
 
     function Item(name, modifier, description) {
         this.name = name,
@@ -24,11 +25,11 @@ function SlapService() {
         helmet: new Item('Helmet', -0.25, 'Reduces damage by 25%')
     }
 
-    function addMods(attack, target) {
+    function addMods(attack, currentTarget) {
         var modRunningTotal = 1;
         var finalTotal = 1;
-        for (var i = 0; i < target.items.length; i++) {
-            var item = target.items[i];
+        for (var i = 0; i < currentTarget.items.length; i++) {
+            var item = currentTarget.items[i];
             if (item.name == 'Armor') {
                 modRunningTotal += item.modifier;
             }
@@ -69,39 +70,39 @@ function SlapService() {
 
     // *** PUBLIC ***
     this.giveItem = function giveItem(item, target) {
-        target = checkTarget(target)
+        currentTarget = checkTarget(target)
         item = checkItem(item)
-        for (var i = 0; i < target.items.length; i++) {
-            var targetItem = target.items[i].name;
-            if (targetItem == item.name) {
+        for (var i = 0; i < currentTarget.items.length; i++) {
+            var currentTargetItem = currentTarget.items[i].name;
+            if (currentTargetItem == item.name) {
                 return;
             }
         }
-        if (item.name == 'Armor' && target.name == 'DoomGuy' || item.name == 'Helmet' && target.name == 'DoomGuy') {
+        if (item.name == 'Armor' && currentTarget.name == 'DoomGuy' || item.name == 'Helmet' && target.name == 'DoomGuy') {
             playerArmorLevel++;
         }
-        if (item.name == 'Berserk Strength' && target.name == 'Imp') {
+        if (item.name == 'Berserk Strength' && currentTarget.name == 'Imp') {
             playerBerserk = 1;
         }
-        target.items.push(item)
+        currentTarget.items.push(item)
         // console.log(target.items)
         // document.getElementsByClassName(`item-pickup`)[0].play(); //need to move function to controller and possible make getter
         // update();
     }
     this.fullHealthCheck = function fullHealthCheck(target){
-        target = checkTarget(target)
-        if (target.health >= 100) {
+        currentTarget = checkTarget(target)
+        if (currentTarget.health >= 100) {
             return false
         }
         return true
     }
     this.hasNoItem = function hasNoItem(item, target) {
-        target = checkTarget(target)
-        if (target.items.length == 0) {
+        currentTarget = checkTarget(target)
+        if (currentTarget.items.length == 0) {
             return true
         }
-        for (var i = 0; i < target.items.length; i++) {
-            var currentItem = target.items[i];
+        for (var i = 0; i < currentTarget.items.length; i++) {
+            var currentItem = currentTarget.items[i];
             if (currentItem.name == item) {
                 return false
             }
@@ -109,41 +110,41 @@ function SlapService() {
         return true
     }
     this.punch = function punch(target) {
-        target = checkTarget(target)
-        target.health -= 1 * addMods('punchy', target);
-        target.health = Math.floor(target.health);
-        target.hits++
-        target.health < 0 ? target.health = 0 : target.health = target.health
-        console.log(target.health)
+        currentTarget = checkTarget(target)
+        currentTarget.health -= 1 * addMods('punchy', currentTarget);
+        currentTarget.health = Math.floor(currentTarget.health);
+        currentTarget.hits++
+        currentTarget.health < 0 ? currentTarget.health = 0 : currentTarget.health = currentTarget.health
+        console.log(currentTarget.health)
         // alert(health);
     }
 
     this.shotgun = function shotgun(target) {
-        target = checkTarget(target)
-        target.health -= 10 * addMods('shotty', target);
-        target.health = Math.floor(target.health);
-        target.hits++
-        target.health < 0 ? target.health = 0 : target.health = target.health
-        console.log(target.health)
+        currentTarget = checkTarget(target)
+        currentTarget.health -= 10 * addMods('shotty', currentTarget);
+        currentTarget.health = Math.floor(currentTarget.health);
+        currentTarget.hits++
+        currentTarget.health < 0 ? currentTarget.health = 0 : currentTarget.health = currentTarget.health
+        console.log(currentTarget.health)
         // alert(health);
     }
 
     this.rocket = function rocket(target) {
-        target = checkTarget(target)
-        target.health -= 20 * addMods('rockety', target);
-        target.health = Math.floor(target.health);
-        target.hits++
-        target.health < 0 ? target.health = 0 : target.health = target.health
-        console.log(target.health)
+        currentTarget = checkTarget(target)
+        currentTarget.health -= 20 * addMods('rockety', currentTarget);
+        currentTarget.health = Math.floor(currentTarget.health);
+        currentTarget.hits++
+        currentTarget.health < 0 ? currentTarget.health = 0 : currentTarget.health = currentTarget.health
+        console.log(currentTarget.health)
         // alert(health);
     }
     this.heal = function heal(target){
         // checkTarget(target).health - Could you use this? You need to reach the actual object
-        target  = checkTarget(target) // *** I think you have a pass by reference issue here***
-        target.health += 25
-        if (target.health > 100) {
-            target.health = 100
+        currentTarget  = checkTarget(target) // *** I think you have a pass by reference issue here***
+        currentTarget.health += 25
+        if (currentTarget.health > 100) {
+            currentTarget.health = 100
         }
-        console.log(target.health)
+        console.log(currentTarget.health)
     }
 }
