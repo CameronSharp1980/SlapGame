@@ -88,6 +88,13 @@ function SlapService() {
         // document.getElementsByClassName(`item-pickup`)[0].play(); //need to move function to controller and possible make getter
         // update();
     }
+    this.fullHealthCheck = function fullHealthCheck(target){
+        target = checkTarget(target)
+        if (target.health >= 100) {
+            return false
+        }
+        return true
+    }
     this.hasNoItem = function hasNoItem(item, target) {
         target = checkTarget(target)
         if (target.items.length == 0) {
@@ -101,5 +108,42 @@ function SlapService() {
         }
         return true
     }
+    this.punch = function punch(target) {
+        target = checkTarget(target)
+        target.health -= 1 * addMods('punchy', target);
+        target.health = Math.floor(target.health);
+        target.hits++
+        target.health < 0 ? target.health = 0 : target.health = target.health
+        console.log(target.health)
+        // alert(health);
+    }
 
+    this.shotgun = function shotgun(target) {
+        target = checkTarget(target)
+        target.health -= 10 * addMods('shotty', target);
+        target.health = Math.floor(target.health);
+        target.hits++
+        target.health < 0 ? target.health = 0 : target.health = target.health
+        console.log(target.health)
+        // alert(health);
+    }
+
+    this.rocket = function rocket(target) {
+        target = checkTarget(target)
+        target.health -= 20 * addMods('rockety', target);
+        target.health = Math.floor(target.health);
+        target.hits++
+        target.health < 0 ? target.health = 0 : target.health = target.health
+        console.log(target.health)
+        // alert(health);
+    }
+    this.heal = function heal(target){
+        // checkTarget(target).health - Could you use this? You need to reach the actual object
+        target  = checkTarget(target) // *** I think you have a pass by reference issue here***
+        target.health += 25
+        if (target.health > 100) {
+            target.health = 100
+        }
+        console.log(target.health)
+    }
 }
